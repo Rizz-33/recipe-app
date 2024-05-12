@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>
+      {% if title %} {{ title }} {% else %} Recipes App Home {% endif %}
+    </title>
   </head>
   <body>
     <h1>Recipes App Home</h1>
+    {% for recipe in recipes %}
+    <div>
+      <h2>{{ recipe.title }}</h2>
+      <p>{{ recipe.author }} | {{ recipe.date_posted }}</p>
+      <p>{{ recipe.direction }}</p>
+    </div>
+    {% endfor %}
   </body>
 </html>
