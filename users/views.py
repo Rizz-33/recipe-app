@@ -5,7 +5,7 @@ from django.views.decorators.http import require_http_methods  # Import the deco
 from . import forms
 
 @login_required
-@require_http_methods(["GET", "POST"])  # Add the decorator
+@require_http_methods(["GET", "POST"])
 def register(request):
     if request.method == 'POST':
         form = forms.UserRegisterForm(request.POST)
@@ -17,3 +17,7 @@ def register(request):
     else:
         form = forms.UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+@login_required()
+def profile(request):
+    return render(request, 'users/profile.html')
