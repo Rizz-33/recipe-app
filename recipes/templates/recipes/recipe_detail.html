@@ -1,0 +1,15 @@
+{% extends 'recipes/base.html'%}
+<!-- -->
+{% block content %}
+<h1>Recipe # {{object.id}}</h1>
+<div class="card my-4" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ object.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{ object.author }}</h6>
+    <p class="card-text">{{ object.description }}</p>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      {{ object.updated_at|date:"F d, Y" }}
+    </h6>
+  </div>
+</div>
+{% endblock content %}
