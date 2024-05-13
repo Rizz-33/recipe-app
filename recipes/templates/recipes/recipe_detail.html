@@ -12,4 +12,13 @@
     </h6>
   </div>
 </div>
-{% endblock content %}
+{% if object.author == user or user.is_staff %}
+<div class="col-4">
+  <a class="btn btn-ouyline-info" href="{%url 'recipes-update' object.id%}"
+    >Update</a
+  >
+  <a class="btn btn-ouyline-danger" href="{%url 'recipes-delete' object.id%}"
+    >Delete</a
+  >
+</div>
+{% endif %} {% endblock content %}
